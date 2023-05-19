@@ -124,7 +124,6 @@
       }
     }
   },
-  "defaultProject": "DiaLog",
   "cli": {
     "analytics": false
   }
