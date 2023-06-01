@@ -1,6 +1,4 @@
-import { DateTime } from 'luxon';
-
-export type Alignment = 'left' | 'center' | 'right';
+export type Alignment = 'start' | 'center' | 'end';
 
 export type AuthorType = 'me' | 'them';
 

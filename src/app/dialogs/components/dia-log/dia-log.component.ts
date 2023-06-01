@@ -47,7 +47,7 @@ export class DiaLogComponent implements OnInit {
       content: '',
       postedBy: 'me',
       read: true,
-      alignment: 'left',
+      alignment: 'start',
     };
   }
 }

@@ -2,7 +2,7 @@
   <div
     class="card-header bg-dark text-light d-flex justify-content-between align-items-center"
   >
-    <span><small>Dialog with</small>&nbsp;<strong>Ken Bogard</strong></span>
+    <div><small>Dialog with</small>&nbsp;<strong>Ken Bogard</strong></div>
     <button class="btn btn-link btn-sm text-light">
       <i class="fas fa-ellipsis-v"></i>
     </button>
@@ -20,49 +20,51 @@
   </div>
   <div class="card-footer">
     <form (submit)="sendNewMessage(msgForm)" #msgForm="ngForm">
-      <div class="form-group">
+      <div class="form-group mb-2">
         <textarea
           class="form-control text-{{ newMessage.alignment }}"
           [class.is-invalid]="msgContent.touched && msgContent.invalid"
-          [(ngModel)]="newMessage.content"
-          required
           rows="3"
+          [(ngModel)]="newMessage.content"
           #msgContent="ngModel"
           name="content"
           placeholder="New message"
+          required
         ></textarea>
         <div class="invalid-feedback">An empty message cannot be sent</div>
       </div>
-      <div class="btn-group btn-group-sm">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="changeAlignment('left')"
-          [class.active]="newMessage.alignment === 'left'"
-        >
-          <i class="fas fa-align-left"></i>
-        </button>
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="changeAlignment('center')"
-          [class.active]="newMessage.alignment === 'center'"
-        >
-          <i class="fas fa-align-center"></i>
-        </button>
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="changeAlignment('right')"
-          [class.active]="newMessage.alignment === 'right'"
-        >
-          <i class="fas fa-align-right"></i>
+      <div class="d-flex justify-content-between">
+        <div class="btn-group btn-group-sm">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="changeAlignment('start')"
+            [class.active]="newMessage.alignment === 'start'"
+          >
+            <i class="fas fa-align-left"></i>
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="changeAlignment('center')"
+            [class.active]="newMessage.alignment === 'center'"
+          >
+            <i class="fas fa-align-center"></i>
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="changeAlignment('end')"
+            [class.active]="newMessage.alignment === 'end'"
+          >
+            <i class="fas fa-align-right"></i>
+          </button>
+        </div>
+        <button class="btn btn-success btn-sm">
+          <i class="far fa-paper-plane"></i>
+          Send!
         </button>
       </div>
-      <button class="btn btn-success float-right btn-sm" type="submit">
-        <i class="far fa-paper-plane"></i>
-        Send!
-      </button>
     </form>
   </div>
 </div>
