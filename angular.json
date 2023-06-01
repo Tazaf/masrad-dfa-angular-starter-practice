@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "new-masrad-dfa-angular-start-practice": {
+    "masrad-dfa-angular-start-practice": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/new-masrad-dfa-angular-start-practice",
+            "outputPath": "dist/masrad-dfa-angular-start-practice",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "new-masrad-dfa-angular-start-practice:build:production"
+              "browserTarget": "masrad-dfa-angular-start-practice:build:production"
             },
             "development": {
-              "browserTarget": "new-masrad-dfa-angular-start-practice:build:development"
+              "browserTarget": "masrad-dfa-angular-start-practice:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "new-masrad-dfa-angular-start-practice:build"
+            "browserTarget": "masrad-dfa-angular-start-practice:build"
           }
         },
         "test": {
