@@ -1,0 +1,68 @@
+<div class="card">
+  <div
+    class="card-header bg-dark text-light d-flex justify-content-between align-items-center"
+  >
+    <span><small>Dialog with</small>&nbsp;<strong>Ken Bogard</strong></span>
+    <button class="btn btn-link btn-sm text-light">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <app-message
+        class="col-8"
+        *ngFor="let message of messages"
+        [message]="message"
+        (removed)="onMessageRemoved($event)"
+        [class.offset-4]="message.postedBy === 'me'"
+      ></app-message>
+    </div>
+  </div>
+  <div class="card-footer">
+    <form (submit)="sendNewMessage(msgForm)" #msgForm="ngForm">
+      <div class="form-group">
+        <textarea
+          class="form-control text-{{ newMessage.alignment }}"
+          [class.is-invalid]="msgContent.touched && msgContent.invalid"
+          [(ngModel)]="newMessage.content"
+          required
+          rows="3"
+          #msgContent="ngModel"
+          name="content"
+          placeholder="New message"
+        ></textarea>
+        <div class="invalid-feedback">An empty message cannot be sent</div>
+      </div>
+      <div class="btn-group btn-group-sm">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="changeAlignment('left')"
+          [class.active]="newMessage.alignment === 'left'"
+        >
+          <i class="fas fa-align-left"></i>
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="changeAlignment('center')"
+          [class.active]="newMessage.alignment === 'center'"
+        >
+          <i class="fas fa-align-center"></i>
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="changeAlignment('right')"
+          [class.active]="newMessage.alignment === 'right'"
+        >
+          <i class="fas fa-align-right"></i>
+        </button>
+      </div>
+      <button class="btn btn-success float-right btn-sm" type="submit">
+        <i class="far fa-paper-plane"></i>
+        Send!
+      </button>
+    </form>
+  </div>
+</div>

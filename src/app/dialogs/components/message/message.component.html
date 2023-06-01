@@ -1,0 +1,15 @@
+<div class="alert alert-{{ class }}">
+  <div class="d-flex align-items-center">
+    <div class="msg-content flex-grow-1 mr-2 text-{{ message.alignment }}">
+      {{ message.content }}
+    </div>
+    <div>
+      <small class="text-info">{{ message.postedAt | date: 'H:mm' }}</small>
+      <button class="btn btn-link btn-sm"
+        type="button"
+        (click)="remove()">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+</div>
